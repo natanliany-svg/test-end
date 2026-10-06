@@ -4,6 +4,7 @@ import "dotenv/config"
 
 import { connectDB } from "./config/db.js"
 import routes from "./routes/routes.js"
+import authRoutes from "./routes/auth.routes.js"
 
 
 
@@ -19,6 +20,9 @@ app.use(express.json())
 
 
 app.use('/api/alerts', routes)
+
+app.use('/api/auth', authRoutes)
+
 
 
 

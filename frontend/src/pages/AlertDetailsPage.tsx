@@ -4,14 +4,18 @@ import { useStore } from '../store/store'
 import AlertsMap from '../components/AlertsMap'
 import 'leaflet/dist/leaflet.css'
 
+
+
 export default function AlertDetailsPage() {
   const { alerts, fetchAlerts } = useStore()
   const navigate = useNavigate()
   const { id } = useParams()
 
+
   useEffect(() => { if (alerts.length === 0) fetchAlerts() }, [alerts.length]);
   const alertDetails = alerts.find(a => a._id === id)
 
+  
   if (!alertDetails) {
     return <div>לא נמצאה התראה</div>
   }
@@ -23,6 +27,7 @@ export default function AlertDetailsPage() {
     lon: alertDetails.lon ||  0,
     lat: alertDetails.lat ||  0
   }]
+
 
   return (
     <div style={{ padding: '20px' }}>

@@ -3,6 +3,7 @@ import axios from 'axios'
 
 const API_URL = 'http://localhost:3200/api/alerts'
 
+
 interface Alert {
   _id?: string
   displayName: string
@@ -22,9 +23,17 @@ interface AppStore {
   addAlert: (alert: any) => Promise<void>
   updateAlert: (id: string, alert: any) => Promise<void>
   deleteAlert: (id: string) => Promise<void>
+    user: any
+  login: (creds: any) => Promise<void>
 }
 
+
 export const useStore = create<AppStore>((set, get) => ({
+    user: null,
+  login: async (creds: any) => {
+    let res = await axios.post('http://localhost:3200/api/auth/login', creds)
+    set({ user: res.data.user })
+  },
   alerts: [],
   fetchAlerts: async () => {
     try {

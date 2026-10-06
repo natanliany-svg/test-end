@@ -1,4 +1,4 @@
-import { z } from "zod"
+import { any, email, z } from "zod"
 
 
 
@@ -10,4 +10,14 @@ export const alertSchema = z.object({
     status: z.enum(["Active", "Handled"]),
     lon: z.number(),
     lat: z.number()
+})
+
+
+export const userSchema = z.object({
+    id:z.number(),
+    username:z.string().min(1),
+    password:z.string(),
+    email: z.email(),
+    role: z.enum(["arena_user" , "general" , "admin"]),
+    assignedArena: z.enum(["North" , "South","Center","All"])
 })

@@ -8,11 +8,11 @@ export default function AddAlertPage() {
 
   const [error, setError] = useState('');
   const [form, setForm] = useState({
-    displayName: '', description: '', priority: 'Low', arena: 'Center', status: 'Active', lon: 34.78, lat: 32.08
+    displayName: '', description: '', priority: 'Low', arena: 'Center', status: 'Active', lon: 50.00, lat: 30.11
   })
 
   const handleSave = async () => {
-    if(!form.displayName || !form.description) return setError('����� �����')
+    if(!form.displayName || !form.description) return setError('חסר ערך או שהכנסת ערך שגוי')
     await addAlert(form)
     navigate('/')
   }

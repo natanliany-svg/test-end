@@ -22,14 +22,14 @@ export default function EditAlertPage() {
         priority: alertToEdit.priority,
         arena: alertToEdit.arena,
         status: alertToEdit.status,
-        lon: alertToEdit.lon || alertToEdit.x || 34.78,
-        lat: alertToEdit.lat || alertToEdit.y || 32.08
+        lon: alertToEdit.lon  || 30.11,
+        lat: alertToEdit.lat  || 50.00
       })
     }
   }, [alerts, id])
 
   const handleSave = async () => {
-    if(!form.displayName || !form.description) return setError('����� �����')
+    if(!form.displayName || !form.description) return setError('אחד או יותר מהערכים אינו תקין')
     if (id) {
         await updateAlert(id, form)
     }

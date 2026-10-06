@@ -29,17 +29,17 @@ export default function Home() {
     id: a._id || Math.random().toString(),
     displayName: a.displayName,
     priority: a.priority,
-    lon: a.lon || a.x || 0,
-    lat: a.lat || a.y || 0
+    lon: a.lon ||  0,
+    lat: a.lat ||  0
   }))
 
   return (
     <div style={{ padding: '10px' }}>
-      <h1 style={{ color: 'darkblue' }}>Tzofia System</h1>
+      <h1 style={{ color: 'darkblue' }}>אפליקציית 'עין צופיה'</h1>
       <Link to="/add"><button style={{ marginBottom: '15px' }}>+ הוסף התראה חדשה</button></Link>
       
       <div style={{ marginBottom: '15px' }}>
-        <input type="text" placeholder="חיפוש שם..." value={name} onChange={e => setName(e.target.value)} style={{ marginRight: '10px' }} />
+        <input type="text" placeholder="חיפוש שם....." value={name} onChange={e => setName(e.target.value)} style={{ marginRight: '10px' }} />
         <select value={arenaFilter} onChange={(e) => setArenaFilter(e.target.value)} style={{ marginRight: '10px' }}>
           <option value="ALL">All Arenas</option>
           <option value="North">North</option>

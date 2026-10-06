@@ -20,8 +20,8 @@ export default function AlertDetailsPage() {
     id: alertDetails._id as string,
     displayName: alertDetails.displayName,
     priority: alertDetails.priority,
-    lon: alertDetails.lon || alertDetails.x || 0,
-    lat: alertDetails.lat || alertDetails.y || 0
+    lon: alertDetails.lon ||  0,
+    lat: alertDetails.lat ||  0
   }]
 
   return (

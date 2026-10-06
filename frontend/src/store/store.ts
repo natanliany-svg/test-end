@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:3001/api/alerts'
+const API_URL = 'http://localhost:3200/api/alerts'
 
 interface Alert {
   _id?: string
@@ -12,8 +12,8 @@ interface Alert {
   status: string
   lon?: number
   lat?: number
-  x?: number
-  y?: number
+  
+  
 }
 
 interface AppStore {

@@ -5,7 +5,7 @@ import AlertsMap from '../components/AlertsMap'
 import 'leaflet/dist/leaflet.css'
 
 export default function Home() {
-  const { alerts, fetchAlerts, deleteAlert } = useStore()
+  const { alerts, fetchAlerts, deleteAlert, user: usr } = useStore()
   const [name, setName] = useState('')
   const [arenaFilter, setArenaFilter] = useState('ALL')
   const [priorityFilter, setPriorityFilter] = useState('ALL')
@@ -25,6 +25,12 @@ export default function Home() {
     filtered = filtered.filter(a => a.priority === priorityFilter)
   }
 
+
+  if (usr && usr.role == 'arena_user') {
+    filtered = filtered.filter(a => a.arena == usr.assignedArena)
+  }
+
+  
   const mapAlerts = filtered.map((a) => ({
     id: a._id || Math.random().toString(),
     displayName: a.displayName,
